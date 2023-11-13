@@ -8,7 +8,8 @@
 #include "input_reading.h"
 #include "main.h"
 
-
+// we aim to work with more than one buttons
+# define N0_OF_BUTTONS 3
 // timer interrupt duration is 10ms , so to pass 1 second ,
 // we need to jump to the interrupt service routine 100 time
 #define DURATION_FOR_AUTO_INCREASING (1000/TIMER_DURATION)
@@ -45,7 +46,6 @@ void button_reading(void){
 				// since the button is pressed .
 				flagForButtonPress1s[i] = 1;
 				// TODO
-
 			}
 		}else{
 			counterForButtonPress1s[i] = 0;

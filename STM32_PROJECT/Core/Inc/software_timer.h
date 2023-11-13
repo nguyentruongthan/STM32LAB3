@@ -15,15 +15,9 @@
 void set_timer_1000ms(int duration);
 uint8_t get_timer_1000ms_flag();
 
-
-// timer for hold button 1
-void set_timer_hold_button_1(int duration);
-uint8_t get_timer_hold_button_1_flag();
-
-
-// timer for hold button 2
-void set_timer_hold_button_2(int duration);
-uint8_t get_timer_hold_button_2_flag();
+// timer 500ms
+void set_timer_500ms(int duration);
+uint8_t get_timer_500ms_flag();
 
 // TIMER FOR BLINK 2HZ
 void set_timer_blink_2Hz(int duration);

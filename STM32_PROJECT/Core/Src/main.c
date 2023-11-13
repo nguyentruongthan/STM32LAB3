@@ -24,7 +24,6 @@
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
 #include "fsm_for_traffic_processing.h"
-#include "fsm_for_input_processing.h"
 #include "input_reading.h"
 #include "output_display.h"
 /* USER CODE END Includes */
@@ -96,8 +95,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   traffic_state = INIT;
   set_timer_1000ms(1000/TIMER_DURATION);
-  set_timer_hold_button_1(500/TIMER_DURATION);
-  set_timer_hold_button_2(500/TIMER_DURATION);
+  set_timer_500ms(500/TIMER_DURATION);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,9 +103,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  fsm_for_input_1_processing();
-	  fsm_for_input_2_processing();
-	  fsm_for_input_3_processing();
+	  fsm_for_input_processing();
 	  display();
 
     /* USER CODE BEGIN 3 */

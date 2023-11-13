@@ -101,7 +101,7 @@ void Error_Handler(void);
 #define EN1_Pin GPIO_PIN_9
 #define EN1_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-uint32_t TIMER_DURATION;//ms
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

@@ -8,10 +8,13 @@
 #ifndef INC_OUTPUT_DISPLAY_H_
 #define INC_OUTPUT_DISPLAY_H_
 
-#include "main.h"
+#include "global.h"
 
 void update7SEG();
 void updateTraffic7SEGBuffer(uint8_t traffic_1, uint8_t traffic_2);
-void display();
+
+void fsm_for_single_led();
+void fsm_for_led_7_seg();
+
 
 #endif /* INC_OUTPUT_DISPLAY_H_ */

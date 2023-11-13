@@ -22,10 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "software_timer.h"
-#include "fsm_for_traffic_processing.h"
-#include "input_reading.h"
-#include "output_display.h"
+#include "global.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +43,7 @@
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-extern uint32_t TIMER_DURATION;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -93,9 +90,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
-  traffic_state = INIT;
   set_timer_1000ms(1000/TIMER_DURATION);
-  set_timer_500ms(500/TIMER_DURATION);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,9 +98,21 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  fsm_for_input_processing();
-	  display();
+	  // fsm for update state of traffic_state
+	  // as state GR, AR, RG and RA, we update through counter of led 7 SEG
+	  fsm_for_traffic_state();
 
+	  // fsm for display single led according traffic_state
+	  fsm_for_single_led();
+
+	  // fsm for display single led according buffer of led 7 SEG
+	  // we update buffer of led 7 SEG in another function
+	  fsm_for_led_7_seg();
+
+	  // fsm for reading button 1
+	  // update traffic_state once button 1 is pressed or pressed in 1s
+	  // and hold this button more than 500ms
+	  fsm_for_input_1_processing();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

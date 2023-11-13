@@ -6,8 +6,7 @@
  */
 
 #include "output_display.h"
-#include "software_timer.h"
-#include "fsm_for_traffic_processing.h"
+
 
 void display7SEG(int num){
 	switch(num){
@@ -229,20 +228,20 @@ uint8_t state_single_led_blink = 0;
 void single_led_blink_2Hz(){
 	switch(state_single_led_blink){
 	case 0:
-		if(get_timer_blink_2Hz_flag()){
+		if(get_timer_blink_single_led_flag()){
 			int T_OFF = (500 / 2) / TIMER_DURATION;
 
-			set_timer_blink_2Hz(T_OFF);
+			set_timer_blink_single_led(T_OFF);
 		}
 		//TODO
 		turn_off_all_single_led();
 		break;
 	case 1:
-		if(get_timer_blink_2Hz_flag()){
+		if(get_timer_blink_single_led_flag()){
 			int T_OFF = (500 / 2) / TIMER_DURATION;
 			int T_ON = (500 / TIMER_DURATION) - T_OFF;
 
-			set_timer_blink_2Hz(T_ON);
+			set_timer_blink_single_led(T_ON);
 		}
 		//TODO
 		turn_on_all_single_led();
@@ -252,39 +251,40 @@ void single_led_blink_2Hz(){
 	}
 }
 
-void display(){
+void fsm_for_single_led(){
 	switch(traffic_state){
 	case RG:
 		single_led_for_RG();
-		updateTraffic7SEGBuffer(traffic_led_7SEG_1, traffic_led_7SEG_2);
 		break;
 	case RA:
 		single_led_for_RA();
-		updateTraffic7SEGBuffer(traffic_led_7SEG_1, traffic_led_7SEG_2);
 		break;
 	case GR:
 		single_led_for_GR();
-		updateTraffic7SEGBuffer(traffic_led_7SEG_1, traffic_led_7SEG_2);
 		break;
 	case AR:
 		single_led_for_AR();
-		updateTraffic7SEGBuffer(traffic_led_7SEG_1, traffic_led_7SEG_2);
-		break;
-	case MODE2:
-		single_led_blink_2Hz();
-		updateTraffic7SEGBuffer(traffic_led_7SEG_1, 2);
-		break;
-	case MODE3:
-		single_led_blink_2Hz();
-		updateTraffic7SEGBuffer(traffic_led_7SEG_1, 3);
-		break;
-	case MODE4:
-		single_led_blink_2Hz();
-		updateTraffic7SEGBuffer(traffic_led_7SEG_1, 4);
 		break;
 	default:
+		single_led_blink_2Hz();
 		break;
 	}
 }
 
+void fsm_for_led_7_seg(){
+	switch(traffic_state){
+	case MODE2:
+		updateTraffic7SEGBuffer(traffic_led_7SEG_1, 2);
+		break;
+	case MODE3:
+		updateTraffic7SEGBuffer(traffic_led_7SEG_1, 3);
+		break;
+	case MODE4:
+		updateTraffic7SEGBuffer(traffic_led_7SEG_1, 4);
+		break;
+	default:
+		updateTraffic7SEGBuffer(traffic_led_7SEG_1, traffic_led_7SEG_2);
+		break;
+	}
+}
 

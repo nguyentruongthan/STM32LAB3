@@ -7,6 +7,7 @@
 C_SRCS += \
 ../Core/Src/fsm_for_input_processing.c \
 ../Core/Src/fsm_for_traffic_processing.c \
+../Core/Src/global.c \
 ../Core/Src/input_reading.c \
 ../Core/Src/main.c \
 ../Core/Src/output_display.c \
@@ -20,6 +21,7 @@ C_SRCS += \
 OBJS += \
 ./Core/Src/fsm_for_input_processing.o \
 ./Core/Src/fsm_for_traffic_processing.o \
+./Core/Src/global.o \
 ./Core/Src/input_reading.o \
 ./Core/Src/main.o \
 ./Core/Src/output_display.o \
@@ -33,6 +35,7 @@ OBJS += \
 C_DEPS += \
 ./Core/Src/fsm_for_input_processing.d \
 ./Core/Src/fsm_for_traffic_processing.d \
+./Core/Src/global.d \
 ./Core/Src/input_reading.d \
 ./Core/Src/main.d \
 ./Core/Src/output_display.d \

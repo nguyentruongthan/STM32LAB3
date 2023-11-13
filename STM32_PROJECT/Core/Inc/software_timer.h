@@ -7,13 +7,17 @@
 
 #ifndef INC_SOFTWARE_TIMER_H_
 #define INC_SOFTWARE_TIMER_H_
-#include "main.h"
+
+
 
 
 // timer 1000 ms
 void set_timer_1000ms(int duration);
 uint8_t get_timer_1000ms_flag();
 
+// timer 500ms
+void set_timer_500ms(int duration);
+uint8_t get_timer_500ms_flag();
 
 
 void timer_run();

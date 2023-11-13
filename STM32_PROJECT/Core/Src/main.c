@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
+#include "fsm_for_traffic_processing.h"
+#include "input_reading.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,6 +92,9 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
+  traffic_state = INIT;
+  set_timer_1000ms(1000/TIMER_DURATION);
+  set_timer_500ms(500/TIMER_DURATION);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -97,7 +102,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  fsm_for_input_processing();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -237,6 +242,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timer_run();
+	button_reading();
 }
 /* USER CODE END 4 */
 

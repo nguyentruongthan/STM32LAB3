@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "software_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,7 +43,7 @@
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-
+extern uint32_t TIMER_DURATION;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -178,7 +178,8 @@ static void MX_TIM2_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM2_Init 2 */
-
+  uint32_t TIMER_F = 8000000/((htim2.Init.Prescaler + 1)*(htim2.Init.Period + 1));
+  TIMER_DURATION = 1000/TIMER_F;//ms
   /* USER CODE END TIM2_Init 2 */
 
 }
@@ -235,7 +236,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-
+	timer_run();
 }
 /* USER CODE END 4 */
 

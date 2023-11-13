@@ -1,7 +1,9 @@
 software_timer.c:14:6:set_timer_1000ms	16	static
 software_timer.c:18:9:get_timer_1000ms_flag	4	static
-software_timer.c:24:6:set_timer_500ms	16	static
-software_timer.c:29:9:get_timer_500ms_flag	4	static
-software_timer.c:36:6:set_timer_blink_2Hz	16	static
-software_timer.c:40:9:get_timer_blink_2Hz_flag	4	static
-software_timer.c:44:6:timer_run	4	static
+software_timer.c:27:6:set_timer_hold_button_1	16	static
+software_timer.c:31:9:get_timer_hold_button_1_flag	4	static
+software_timer.c:38:6:set_timer_hold_button_2	16	static
+software_timer.c:42:9:get_timer_hold_button_2_flag	4	static
+software_timer.c:50:6:set_timer_blink_2Hz	16	static
+software_timer.c:54:9:get_timer_blink_2Hz_flag	4	static
+software_timer.c:58:6:timer_run	4	static

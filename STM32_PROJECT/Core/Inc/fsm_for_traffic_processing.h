@@ -10,6 +10,7 @@
 
 #include "main.h"
 
+
 #define INIT 		0
 #define RG 			1
 #define RA 			2
@@ -24,8 +25,15 @@ uint8_t traffic_state;
 uint8_t traffic_led_7SEG_1;
 uint8_t traffic_led_7SEG_2;
 
+uint8_t red_duration;
+uint8_t green_duration;
+uint8_t amber_duration;
+
 void update_traffic_state_using_button_1();
 
-void fsm_for_traffic_processing();
+void execute_button_2();
+void execute_button_3();
+
+
 
 #endif /* INC_FSM_FOR_TRAFFIC_PROCESSING_H_ */

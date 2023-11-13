@@ -10,46 +10,101 @@
 #include "input_reading.h"
 #include "fsm_for_input_processing.h"
 #include "software_timer.h"
+#include "fsm_for_traffic_processing.h"
 
 #define BUTTON_RELEASED 0
 #define BUTTON_PRESSED 1
 #define BUTTON_PRESSED_MORE_THAN_1_SECOND 2
 
-uint8_t buttonState = BUTTON_RELEASED;
+uint8_t buttonState[N0_OF_BUTTONS] = {BUTTON_RELEASED, BUTTON_RELEASED, BUTTON_RELEASED};
 
-void fsm_for_input_processing(void){
-	switch(buttonState){
+void fsm_for_input_1_processing(void){
+	switch(buttonState[0]){
 	case BUTTON_RELEASED :
 		if(is_button_pressed(0)){
-			buttonState = BUTTON_PRESSED ;
+			buttonState[0] = BUTTON_PRESSED ;
 			//TODO
 			update_traffic_state_using_button_1();
 		}
 		break ;
-	case BUTTON_PRESSED :
+	case BUTTON_PRESSED:
 		if(!is_button_pressed(0)) {
-			buttonState = BUTTON_RELEASED ;
+			buttonState[0] = BUTTON_RELEASED ;
 		}else {
 			if(is_button_pressed_1s(0)){
-				FlagStatus
-				buttonState = BUTTON_PRESSED_MORE_THAN_1_SECOND;
+				buttonState[0] = BUTTON_PRESSED_MORE_THAN_1_SECOND;
 				//TODO for first time BUTTON_PRESSED_MORE_THAN_1_SECOND
-				set_timer_500ms(500/TIMER_DURATION);
+				set_timer_hold_button_1(500/TIMER_DURATION);
 				update_traffic_state_using_button_1();
 			}
 		}
 		break ;
 	case BUTTON_PRESSED_MORE_THAN_1_SECOND :
 		if(!is_button_pressed(0)){
-			buttonState = BUTTON_RELEASED;
+			buttonState[0] = BUTTON_RELEASED;
 		}
 		// set timer 500ms, if flag for timer 500ms is set -> DO something
 		// TODO
-		if(get_timer_500ms_flag()){
-			set_timer_500ms(500/TIMER_DURATION);
+		if(get_timer_hold_button_1_flag()){
+			set_timer_hold_button_1(500/TIMER_DURATION);
 			//TODO
 			update_traffic_state_using_button_1();
 		}
 		break ;
 	}
 }
+
+void fsm_for_input_2_processing(void){
+	switch(buttonState[1]){
+	case BUTTON_RELEASED :
+		if(is_button_pressed(1)){
+			buttonState[1] = BUTTON_PRESSED ;
+			//TODO
+			execute_button_2();
+		}
+		break ;
+	case BUTTON_PRESSED :
+		if(!is_button_pressed(1)) {
+			buttonState[1] = BUTTON_RELEASED ;
+		}else {
+			if(is_button_pressed_1s(1)){
+				buttonState[1] = BUTTON_PRESSED_MORE_THAN_1_SECOND;
+				//TODO for first time BUTTON_PRESSED_MORE_THAN_1_SECOND
+				set_timer_hold_button_2(500/TIMER_DURATION);
+				execute_button_2();
+			}
+		}
+		break ;
+	case BUTTON_PRESSED_MORE_THAN_1_SECOND :
+		if(!is_button_pressed(1)){
+			buttonState[1] = BUTTON_RELEASED;
+		}
+		// set timer 500ms, if flag for timer 500ms is set -> DO something
+		// TODO
+		if(get_timer_hold_button_2_flag()){
+			set_timer_hold_button_2(500/TIMER_DURATION);
+			//TODO
+			execute_button_2();
+		}
+		break ;
+	}
+}
+
+void fsm_for_input_3_processing(void){
+	switch(buttonState[2]){
+	case BUTTON_RELEASED:
+		if(is_button_pressed(2)){
+			buttonState[2] = BUTTON_PRESSED ;
+			//TODO
+			execute_button_3();
+		}
+		break ;
+	case BUTTON_PRESSED:
+		if(!is_button_pressed(1)) {
+			buttonState[2] = BUTTON_RELEASED ;
+		}
+		break;
+	default: break;
+	}
+}
+

@@ -8,6 +8,8 @@
 #ifndef INC_INPUT_READING_H_
 #define INC_INPUT_READING_H_
 
+// we aim to work with more than one buttons
+# define N0_OF_BUTTONS 3
 
 void button_reading(void);
 unsigned char is_button_pressed(unsigned char index);

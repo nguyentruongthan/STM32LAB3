@@ -5,13 +5,10 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-<<<<<<< HEAD
 ../Core/Src/fsm_for_input_processing.c \
 ../Core/Src/fsm_for_traffic_processing.c \
-../Core/Src/input_reading.c \
-=======
 ../Core/Src/global.c \
->>>>>>> ex4
+../Core/Src/input_reading.c \
 ../Core/Src/main.c \
 ../Core/Src/output_display.c \
 ../Core/Src/software_timer.c \
@@ -22,13 +19,10 @@ C_SRCS += \
 ../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
-<<<<<<< HEAD
 ./Core/Src/fsm_for_input_processing.o \
 ./Core/Src/fsm_for_traffic_processing.o \
-./Core/Src/input_reading.o \
-=======
 ./Core/Src/global.o \
->>>>>>> ex4
+./Core/Src/input_reading.o \
 ./Core/Src/main.o \
 ./Core/Src/output_display.o \
 ./Core/Src/software_timer.o \
@@ -39,13 +33,10 @@ OBJS += \
 ./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
-<<<<<<< HEAD
 ./Core/Src/fsm_for_input_processing.d \
 ./Core/Src/fsm_for_traffic_processing.d \
-./Core/Src/input_reading.d \
-=======
 ./Core/Src/global.d \
->>>>>>> ex4
+./Core/Src/input_reading.d \
 ./Core/Src/main.d \
 ./Core/Src/output_display.d \
 ./Core/Src/software_timer.d \

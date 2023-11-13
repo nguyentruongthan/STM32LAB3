@@ -7,27 +7,20 @@
 
 #ifndef INC_SOFTWARE_TIMER_H_
 #define INC_SOFTWARE_TIMER_H_
-<<<<<<< HEAD
 
-
-=======
 #include "global.h"
->>>>>>> ex4
+
 
 
 // timer 1000 ms
 void set_timer_1000ms(int duration);
 uint8_t get_timer_1000ms_flag();
 
-<<<<<<< HEAD
-// timer 500ms
-void set_timer_500ms(int duration);
-uint8_t get_timer_500ms_flag();
-=======
+
 // timer for every 0.5s if button 1 pressed than 1s
 void set_timer_button_1_500ms(int duration);
 uint8_t get_timer_button_1_500ms_flag();
->>>>>>> ex4
+
 
 // timer for every 0.5s if button 2 pressed than 1s
 void set_timer_button_2_500ms(int duration);

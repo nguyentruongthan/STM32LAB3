@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 "./Core/Src/fsm_for_input_processing.o"
 "./Core/Src/fsm_for_traffic_processing.o"
-"./Core/Src/input_reading.o"
-=======
 "./Core/Src/global.o"
->>>>>>> ex4
+"./Core/Src/input_reading.o"
 "./Core/Src/main.o"
 "./Core/Src/output_display.o"
 "./Core/Src/software_timer.o"

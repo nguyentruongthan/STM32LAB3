@@ -8,7 +8,7 @@
 #ifndef INC_FSM_FOR_TRAFFIC_PROCESSING_H_
 #define INC_FSM_FOR_TRAFFIC_PROCESSING_H_
 
-#include "main.h"
+#include "global.h"
 
 #define INIT 		0
 #define RG 			1
@@ -22,6 +22,5 @@
 uint8_t traffic_state;
 void update_traffic_state_using_button_1();
 
-void fsm_for_traffic_processing();
 
 #endif /* INC_FSM_FOR_TRAFFIC_PROCESSING_H_ */

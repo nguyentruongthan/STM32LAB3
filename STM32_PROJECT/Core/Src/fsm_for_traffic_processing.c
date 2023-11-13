@@ -6,10 +6,8 @@
  */
 
 
-#include "main.h"
 #include "fsm_for_traffic_processing.h"
-#include "software_timer.h"
-#include "input_reading.h"
+
 
 extern uint8_t traffic_state;
 

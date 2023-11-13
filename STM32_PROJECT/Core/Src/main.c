@@ -22,9 +22,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+<<<<<<< HEAD
 #include "software_timer.h"
 #include "fsm_for_traffic_processing.h"
 #include "input_reading.h"
+=======
+#include "global.h"
+>>>>>>> ex4
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +49,7 @@
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-extern uint32_t TIMER_DURATION;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

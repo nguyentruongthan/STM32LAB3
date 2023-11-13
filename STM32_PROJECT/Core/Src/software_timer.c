@@ -30,6 +30,16 @@ uint8_t get_timer_500ms_flag(){
 	return timer_500ms_flag;
 }
 
+// TIMER FOR BLINK 2HZ
+int timer_blink_2Hz_flag;
+uint8_t timer_blink_2Hz_count;
+void set_timer_blink_2Hz(int duration){
+	timer_blink_2Hz_count = duration;
+	timer_blink_2Hz_flag = 0;
+}
+uint8_t get_timer_blink_2Hz_flag(){
+	return timer_blink_2Hz_flag;
+}
 
 void timer_run(){
 

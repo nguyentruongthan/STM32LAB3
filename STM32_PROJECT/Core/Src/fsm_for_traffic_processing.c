@@ -12,6 +12,8 @@
 #include "input_reading.h"
 
 extern uint8_t traffic_state;
+extern uint8_t traffic_led_7SEG_1;
+extern uint8_t traffic_led_7SEG_2;
 
 void update_traffic_state_using_button_1(){
 	switch(traffic_state){

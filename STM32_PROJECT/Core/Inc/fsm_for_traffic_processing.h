@@ -20,6 +20,10 @@
 #define MODE4		7
 
 uint8_t traffic_state;
+
+uint8_t traffic_led_7SEG_1;
+uint8_t traffic_led_7SEG_2;
+
 void update_traffic_state_using_button_1();
 
 void fsm_for_traffic_processing();

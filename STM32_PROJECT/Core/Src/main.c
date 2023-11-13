@@ -25,6 +25,7 @@
 #include "software_timer.h"
 #include "fsm_for_traffic_processing.h"
 #include "input_reading.h"
+#include "output_display.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,6 +104,8 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  fsm_for_input_processing();
+	  display();
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -243,6 +246,7 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timer_run();
 	button_reading();
+	update7SEG();
 }
 /* USER CODE END 4 */
 

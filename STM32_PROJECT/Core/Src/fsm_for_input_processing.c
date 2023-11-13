@@ -6,7 +6,6 @@
  */
 
 
-#include <traffic_processing.h>
 #include "main.h"
 #include "input_reading.h"
 #include "fsm_for_input_processing.h"

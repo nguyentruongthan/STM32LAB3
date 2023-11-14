@@ -78,6 +78,9 @@ void execute_RA(){
 }
 void fsm_for_traffic_state(){
 	switch(traffic_state){
+	case INIT:
+		traffic_state = GR;
+		break;
 	case GR:
 		execute_GR();
 		break;

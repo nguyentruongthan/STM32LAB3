@@ -80,6 +80,8 @@ void fsm_for_traffic_state(){
 	switch(traffic_state){
 	case INIT:
 		traffic_state = GR;
+		traffic_led_7SEG_1 = GREEN_DURATION;
+		traffic_led_7SEG_2 = RED_DURATION;
 		break;
 	case GR:
 		execute_GR();

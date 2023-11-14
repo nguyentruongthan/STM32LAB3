@@ -90,7 +90,8 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
-  set_timer_1000ms(1000/TIMER_DURATION);
+  set_timer_1000ms(1);
+  traffic_state = INIT;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -107,6 +108,7 @@ int main(void)
 
 	  // fsm for display single led according buffer of led 7 SEG
 	  // we update buffer of led 7 SEG in another function
+	  // we also sweep four 7 led SEG with timer to switch two LED is 200ms
 	  fsm_for_led_7_seg();
 
 	  // fsm for reading button 1
@@ -253,7 +255,6 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timer_run();
 	button_reading();
-	update7SEG();
 }
 /* USER CODE END 4 */
 

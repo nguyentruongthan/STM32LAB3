@@ -27,7 +27,11 @@ uint32_t TIMER_DURATION;//ms
 #define MODE3		6
 #define MODE4		7
 
-uint8_t traffic_state = INIT;
+#define RED_DURATION	8
+#define GREEN_DURATION	5
+#define AMBER_DURATION 	3
+
+uint8_t traffic_state;
 
 uint8_t traffic_led_7SEG_1;
 uint8_t traffic_led_7SEG_2;

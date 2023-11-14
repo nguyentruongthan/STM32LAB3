@@ -110,6 +110,11 @@ const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = {1, 2, 3, 4};
 void update7SEG(){
+	if(!get_timer_blink_single_led_flag()){
+		return;
+	}
+	set_timer_sweep_led_7_seg(200/TIMER_DURATION);
+	//TODO
 	display7SEG(led_buffer[index_led]);
 	switch(index_led){
 	case 0:
@@ -286,5 +291,6 @@ void fsm_for_led_7_seg(){
 		updateTraffic7SEGBuffer(traffic_led_7SEG_1, traffic_led_7SEG_2);
 		break;
 	}
+	update7SEG();
 }
 
